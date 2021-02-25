@@ -1,14 +1,61 @@
 
 
 
-  <h3> Componente dos Eventos </h3>
 
-  <div *ngFor="let evento of eventos">
-
-    <p>Tema: {{evento.tema}}</p>
-    <p>Local: {{evento.local}}</p>
-    <hr />
-
+<div  class="form-inline">
+  <div class="form-group mb-2">
+    <label class="mr-2"><b>Filtro:</b></label>
+   <input type="text" class="form-control mr-2"
+   placeHolder="Buscar"
+   [(ngModel)]="filtro">
   </div>
+
+</div>
+<!-- <h3 class="text-left">{{filtro}}</h3> -->
+<table class="table table-striped">
+  <thead class="thead-dark text-left">
+    <tr>
+      <th>
+        <button  class = "btn btn-outline-light btn-small" (click)="expandImage()" >{{isExpanded ? "Diminuir": "Expandir"}}</button>
+      </th>
+      <th>#</th>
+      <th><h5>Tema</h5></th>
+      <th><h5>Local</h5></th>
+      <th><h5>Data</h5></th>
+      <th><h5>Qtd Pessoas</h5></th>
+      <th><h5>Lote</h5></th>
+      <th><h5>Opções</h5></th>
+    </tr>
+  </thead>
+
+  <tbody *ngIf="eventos && eventos.length" class="text-left">
+    <tr *ngFor="let prop of eventosFiltrados">
+      <td>
+        <img src="/assets/{{prop.imageUrl}}" alt="event image"
+        [style.width.px] ="imageWidth"
+        [style.margin.px] ="imageMargin">
+      </td>
+      <td>{{prop.eventoId}}</td>
+      <td><h5>{{prop.tema}}</h5></td>
+      <td><h5>{{prop.local}}</h5></td>
+      <td><h5>{{prop.dataEvento}}</h5></td>
+      <td><h5>{{prop.qtdPessoas}}</h5></td>
+      <td><h5>{{prop.lote}}</h5></td>
+      <td>
+        <button type ="button" class="btn btn-sm btn-primary mr-2">Editar</button>
+        <button type ="button" class="btn btn-sm btn-danger">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+<tfoot *ngIf="!eventos.length">
+  <tr>
+    <td class="text-center" colSpan = "8">
+      <h4>Nenhum Evento Encontrado!</h4>
+    </td>
+  </tr>
+</tfoot>
+</table>
+
+<!-- {{eventos | json}} -->
 
 

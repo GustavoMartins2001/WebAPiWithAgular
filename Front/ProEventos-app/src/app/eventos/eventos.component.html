@@ -1,7 +1,4 @@
 
-
-
-
 <div  class="form-inline">
   <div class="form-group mb-2">
     <label class="mr-2"><b>Filtro:</b></label>
@@ -18,7 +15,7 @@
       <th>
         <button  class = "btn btn-outline-light btn-small" (click)="expandImage()" >{{isExpanded ? "Diminuir": "Expandir"}}</button>
       </th>
-      <th>#</th>
+      <th><h5>#</h5></th>
       <th><h5>Tema</h5></th>
       <th><h5>Local</h5></th>
       <th><h5>Data</h5></th>
@@ -31,19 +28,23 @@
   <tbody *ngIf="eventos && eventos.length" class="text-left">
     <tr *ngFor="let prop of eventosFiltrados">
       <td>
-        <img src="/assets/{{prop.imageUrl}}" alt="event image"
+        <img src="/assets/{{prop.imagemURL}}" alt="event image"
         [style.width.px] ="imageWidth"
         [style.margin.px] ="imageMargin">
       </td>
-      <td>{{prop.eventoId}}</td>
+      <td><h5>{{prop.id}}</h5></td>
       <td><h5>{{prop.tema}}</h5></td>
       <td><h5>{{prop.local}}</h5></td>
-      <td><h5>{{prop.dataEvento}}</h5></td>
+      <td><h5>{{prop.dataEvento | DateFormatPipe}}</h5></td>
       <td><h5>{{prop.qtdPessoas}}</h5></td>
-      <td><h5>{{prop.lote}}</h5></td>
+      <td><h5>{{prop.lotes[0].nome}}</h5></td>
       <td>
-        <button type ="button" class="btn btn-sm btn-primary mr-2">Editar</button>
-        <button type ="button" class="btn btn-sm btn-danger">Excluir</button>
+        <button type ="button" class="btn btn-sm btn-primary mr-2" tooltip = "Editar">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button type ="button" class="btn btn-sm btn-danger" (click)="openModal(template)" tooltip = "Excluir" >
+          <i class="fa fa-trash"></i>
+        </button>
       </td>
     </tr>
   </tbody>
@@ -55,6 +56,21 @@
   </tr>
 </tfoot>
 </table>
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Deseja deletar este Evento?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" (click)="openModal(deleted)" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
+
+<ng-template #deleted   >
+  <div class="modal-body text-center">
+  <p class ="text-center" >Deletado com Sucesso</p>
+  <button type = "button" class="btn btn-success" (click)="modalHide()" >Confirmar</button>
+  </div>
+</ng-template>
 
 <!-- {{eventos | json}} -->
 

@@ -7,10 +7,10 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventosComponent } from './eventos/eventos.component';
-import { PalestrantesComponent } from './palestrantes/palestrantes.component';
+import { EventosComponent } from './componets/eventos/eventos.component';
+import { PalestrantesComponent } from './componets/palestrantes/palestrantes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavComponent } from './nav/nav.component';
+import { NavComponent } from './shared/nav/nav.component';
 
 
 
@@ -22,12 +22,18 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { EventoService } from './services/evento.service';
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { DashboardComponent } from './componets/dashboard/dashboard.component';
+import { TituloComponent } from './shared/titulo/titulo.component';
+import { ContatosComponent } from './componets/contatos/contatos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
       EventosComponent,
       PalestrantesComponent,
+      DashboardComponent,
+      ContatosComponent,
+      TituloComponent,
       NavComponent,
       DateTimeFormatPipe
    ],

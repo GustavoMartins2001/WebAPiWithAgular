@@ -1,0 +1,17 @@
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.deps.json
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.dll
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ref\ProEventos.Application.dll
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.pdb
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csprojAssemblyReference.cache
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.AssemblyInfoInputs.cache
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.AssemblyInfo.cs
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csproj.CoreCompileInputs.cache
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.dll
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ref\ProEventos.Application.dll
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.pdb
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Domain.dll
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Persistence.dll
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Domain.pdb
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Persistence.pdb
+F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csproj.CopyComplete

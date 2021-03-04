@@ -1,21 +1,18 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EventoService } from 'src/app/services/evento.service';
 import { Evento } from 'src/app/_models/Evento';
-import { isWhileStatement } from 'typescript';
-
-
-
 
 @Component({
-  selector: 'app-eventos',
-  templateUrl: './eventos.component.html',
-  styleUrls: ['./eventos.component.scss']
+  selector: 'app-evento-lista',
+  templateUrl: './evento-lista.component.html',
+  styleUrls: ['./evento-lista.component.scss']
 })
+export class EventoListaComponent implements OnInit {
 
-export class EventosComponent implements OnInit {
+
   modalRef?: BsModalRef;
   public isExpanded = false;
   public imageWidth = 80;
@@ -31,7 +28,7 @@ export class EventosComponent implements OnInit {
 
 public set filtro(value: string){
   this.filtroListado = value;
-  this.eventosFiltrados = this.filtro ? this.filtrarEventos(this.filtro) : this.eventos;
+  this.eventosFiltrados = this.filtroListado ? this.filtrarEventos(this.filtroLista) : this.eventos;
 }
 
 public filtrarEventos(filtrarPor: string): Evento[] {
@@ -45,7 +42,8 @@ public filtrarEventos(filtrarPor: string): Evento[] {
   constructor(
     private eventoService: EventoService,
     private modalService: BsModalService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
     ) { }
 
 
@@ -108,5 +106,10 @@ public filtrarEventos(filtrarPor: string): Evento[] {
     this.modalRef.hide();
     }
   }
+
+  detalheEvento(id: number): void{
+    this.router.navigate([`eventos/detalhe/${id}`]);
+  }
+
 
 }

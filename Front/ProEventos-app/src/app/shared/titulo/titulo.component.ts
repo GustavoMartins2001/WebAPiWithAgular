@@ -8,8 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TituloComponent implements OnInit {
 
   constructor() { }
+
+  // Comandos para serem alterados individualmente
+  // nos respectivos componentes
   @Input() titulo: string | undefined;
-  ngOnInit() {
+  @Input() subtitulo = 'desde 2021';
+  @Input() iconClass = 'fa fa-user';
+  @Input() botaoListar = false;
+  @Input() routingLink = '/eventos/lista';
+  ngOnInit(): void {
   }
 
 }

@@ -7,8 +7,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventosComponent } from './componets/eventos/eventos.component';
-import { PalestrantesComponent } from './componets/palestrantes/palestrantes.component';
+import { EventosComponent } from './components/eventos/eventos.component';
+import { PalestrantesComponent } from './components/palestrantes/palestrantes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './shared/nav/nav.component';
 
@@ -22,9 +22,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { EventoService } from './services/evento.service';
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { DashboardComponent } from './componets/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
-import { ContatosComponent } from './componets/contatos/contatos.component';
+import { ContatosComponent } from './components/contatos/contatos.component';
+import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
+import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ContatosComponent } from './componets/contatos/contatos.component';
       ContatosComponent,
       TituloComponent,
       NavComponent,
-      DateTimeFormatPipe
+      DateTimeFormatPipe,
+      EventoDetalheComponent,
+      EventoListaComponent
    ],
   imports: [
     BrowserModule,

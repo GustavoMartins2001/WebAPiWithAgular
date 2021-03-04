@@ -1,54 +1,65 @@
 
-<div  class="form-inline">
+ <div class = "card rounded shadow-sm p-3">
+<div  class="flex-fill form-inline">
+
   <div class="form-group mb-2">
-    <label class="mr-2"><b>Filtro:</b></label>
    <input type="text" class="form-control mr-2"
-   placeHolder="Buscar"
+   placeHolder="Buscar por Tema"
    [(ngModel)]="filtro">
+  </div>
+  <div style ="margin-bottom: 6px;">
+    <a class="d-flex btn btn-outline-primary btn-sm" routerLink ="/eventos/detalhe">
+      <i class ="fa fa-plus-circle my-2"></i>
+      <b class ="ml-1 d-none d-sm-block" >Novo</b>
+    </a>
   </div>
 
 </div>
-<!-- <h3 class="text-left">{{filtro}}</h3> -->
+
+<!-- Teste para o sistema de busca: <h3 class="text-left">{{filtroLista}}</h3>  -->
 <table class="table table-striped">
   <thead class="thead-dark text-left">
     <tr>
-      <th>
+      <th class= "d-none d-md-table-cell">
         <button  class = "btn btn-outline-light btn-small" (click)="expandImage()" >{{isExpanded ? "Diminuir": "Expandir"}}</button>
       </th>
       <th><h5>#</h5></th>
       <th><h5>Tema</h5></th>
-      <th><h5>Local</h5></th>
+      <th class= "d-none d-md-table-cell"><h5>Local</h5></th>
       <th><h5>Data</h5></th>
-      <th><h5>Qtd Pessoas</h5></th>
-      <th><h5>Lote</h5></th>
+      <th class= "d-none d-md-table-cell"><h5>Qtd Pessoas</h5></th>
+      <th class= "d-none d-md-table-cell"><h5>Lote</h5></th>
       <th><h5>Opções</h5></th>
     </tr>
   </thead>
 
   <tbody *ngIf="eventos && eventos.length" class="text-left">
-    <tr *ngFor="let prop of eventosFiltrados">
-      <td>
+    <tr *ngFor="let prop of eventosFiltrados" >
+      <td class= "d-none d-md-table-cell">
         <img src="/assets/{{prop.imagemURL}}" alt="event image"
         [style.width.px] ="imageWidth"
         [style.margin.px] ="imageMargin">
       </td>
-      <td><h5>{{prop.id}}</h5></td>
-      <td><h5>{{prop.tema}}</h5></td>
-      <td><h5>{{prop.local}}</h5></td>
-      <td><h5>{{prop.dataEvento | DateFormatPipe}}</h5></td>
-      <td><h5>{{prop.qtdPessoas}}</h5></td>
-      <td><h5>{{prop.lotes[0].nome}}</h5></td>
+      <td>{{prop.id}}</td>
+      <td>{{prop.tema}}</td>
+      <td class= "d-none d-md-table-cell">{{prop.local}}</td>
+      <td>{{prop.dataEvento | DateFormatPipe}}</td>
+      <td class= "d-none d-md-table-cell">{{prop.qtdPessoas}}</td>
+      <td class= "d-none d-md-table-cell">{{prop.lotes[0].nome}}</td>
       <td>
-        <button type ="button" class="btn btn-sm btn-primary mr-2" tooltip = "Editar">
+        <!-- botões para Editar e deletar-->
+        <button type ="button" class="btn btn-sm btn-primary mr-2" tooltip = "Editar" (click)="detalheEvento(prop.id)">
           <i class="fa fa-edit"></i>
         </button>
         <button type ="button" class="btn btn-sm btn-danger" (click)="openModal(template)" tooltip = "Excluir" >
           <i class="fa fa-trash"></i>
         </button>
+
       </td>
     </tr>
   </tbody>
-<tfoot *ngIf="!eventos.length">
+  <!--Logica para mostrar tfoot, caso nao haja nenhum evento na tela.-->
+<tfoot *ngIf="!eventos.length || eventosFiltrados.length == 0">
   <tr>
     <td class="text-center" colSpan = "8">
       <h4>Nenhum Evento Encontrado!</h4>
@@ -56,6 +67,7 @@
   </tr>
 </tfoot>
 </table>
+</div>
 
 <ng-template #template>
   <div class="modal-body text-center">
@@ -73,5 +85,6 @@
 </ng-template>
 
 <!-- {{eventos | json}} -->
+
 
 

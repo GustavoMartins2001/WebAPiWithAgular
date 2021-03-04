@@ -1,4 +1,18 @@
 
- <h3> {{titulo}}</h3>
 <hr>
+<div class="d-flex p-3 my-3 text-white bg-secondary rounded shadow-sm" style ="align-content: center;">
+
+<div class = "d-flex align-items-center mr-auto">
+  <i class="{{iconClass}} mr-3"></i>
+  <div class="lh-1">
+    <h1 class="mb-0 text">{{titulo}}</h1>
+    <small>{{subtitulo}}</small>
+  </div>
+  </div>
+
+  <!--Checa se deve adicionar o botão de listagem naquela pagina-->
+  <div *ngIf="botaoListar">
+    <button class = "btn btn-outline-light" style="margin-top:15px;" routerLink ="{{routingLink}}"> Listar {{titulo}}</button>
+  </div>
+</div>
 

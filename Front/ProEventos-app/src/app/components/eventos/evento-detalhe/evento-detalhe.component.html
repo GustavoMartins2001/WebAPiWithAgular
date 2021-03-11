@@ -1,40 +1,117 @@
+<app-titulo
+[titulo] = "'Eventos'"
+[iconClass] ="'fa fa-calendar-alt'"
+[botaoListar]="true"
+[routingLink]= "'/eventos/lista'"
+ ></app-titulo>
 <div class="card rounded shadow-sm">
-  <form method="post" action ="http://localhost:5000/api/Eventos">
+  <form [formGroup]="form" (ngSubmit)="submitForm()"  method="post">
     <div class="p-3">
+      <p>form value: {{form.value | json}}</p>
+      <p>form value: {{form.status | json}}</p>
+      <p>{{printPalestrante}}</p>
       <div class="form-row">
         <div class="form-group col-md-12">
           <label>Tema</label>
-          <input type="text" class="form-control" placeholder="Insira o Tema">
+          <input type="text" class="form-control" formControlName="tema" placeholder="Insira o Tema">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-8">
           <label>Local</label>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" class="form-control" formControlName="local" placeholder="">
         </div>
         <div class="form-group col-md-4">
           <label>Data e Hora</label>
-          <input type="datetime" class="form-control" placeholder="">
+          <input type="datetime-local" class="form-control" formControlName="dataEvento" placeholder="">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-2">
           <label>Qtd Pessoas</label>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" (ngModelChange)="addLimit()" class="form-control" formControlName="qtdPessoas" placeholder="">
+        </div>
+        <div class="form-group col-md-2">
+          <label>Telefone</label>
+          <input type="text" class="form-control" formControlName="telefone" placeholder="(000) 90000-0000">
         </div>
         <div class="form-group col-md-4">
-          <label>Telefone</label>
-          <input type="text" class="form-control" placeholder="(000) 90000-0000">
-        </div>
-        <div class="form-group col-md-6">
           <label>Email</label>
-          <input type="text" class="form-control" placeholder="e-mail">
+          <input type="text" class="form-control" formControlName="email" placeholder="e-mail">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Foto:</label>
+          <input type="text" class="form-control" formControlName="imagemURL" placeholder="">
         </div>
       </div>
+      <div formArrayName="lotes"
+      *ngFor="let lote of lotes.controls; let i = index">
+
+      <div class = "form-row" [formGroupName]="i">
+        <div class = "form-group col-md-2">
+         <label>Lote:</label>
+         <input type="text" class="form-control" formControlName="nome">
+        </div>
+
+        <div class="form-group col-md-2">
+        <label>Preço:</label>
+        <input type="number" class="form-control" formControlName="preco">
+        </div>
+
+        <div class="form-group col-md-2">
+          <label>Capacidade:</label>
+          <input type="number" class= "form-control" formControlName="quantidade">
+        </div>
+
+      </div>
+
+
+      </div>
+      <div class = "form-row">
+        <div class = "form-group col-md-2">
+          <b type="button" (click)="addLote()" class="form-control btn btn-outline-primary d-sm-block">
+            <i class="fa fa-plus-circle"></i> Lote</b>
+        </div>
+      </div>
+      <app-uploadfile (image)="addImage($event)"></app-uploadfile>
+      <p>{{eventoImagem.name}}</p>
+      <form (ngSubmit)="choosePalestrante()">
+      <div class="form-group col-md-2">
+      <label>Add Palestrante:</label>
+      <select [(ngModel)]="printPalestrante" class="form-control" name="first">
+        <option *ngFor="let palestrante of palests" [ngValue]="palestrante" >  {{palestrante.nome}}</option>
+      </select>
+      <button  type="submit"  class="btn btn-outline-secondary mr-auto border">
+        Adicionar
+      </button>
+    </div>
+  </form>
+      <div formArrayName="redesSociais"
+         *ngFor="let rede of redesSociais.controls; let i = index;">
+
+        <div class ="form-row" [formGroupName]="i">
+        <div class = "form-group col-md-2">
+        <label>Rede Social:</label>
+        <input type="text" class="form-control" formControlName="nome" >
+        </div>
+        <div class = "form-group col-md-3">
+          <label>Url:</label>
+          <input type="text" class="form-control" formControlName="url" placeholder="ex: www.facebook.com/proeventos" >
+          </div>
+          <hr class = " linha-vertical">
+        </div>
+
+        </div>
+        <div class = "form-row">
+          <div class = "form-group col-md-2">
+            <b type="button" (click)="addRede()" class="form-control btn btn-outline-primary d-sm-block">
+              <i class="fa fa-plus-circle"></i> Rede Social</b>
+          </div>
+        </div>
     </div>
     <div class="card-footer">
       <div class="d-flex">
-        <button class="btn btn-outline-secondary mr-auto border">
+        <button (click)="redirectLista()" class="btn btn-outline-secondary mr-auto border">
           Cancelar Alteração
         </button>
         <button type="submit" class="btn btn-success">

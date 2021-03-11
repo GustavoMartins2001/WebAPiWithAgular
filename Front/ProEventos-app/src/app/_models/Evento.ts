@@ -1,4 +1,5 @@
-import { Lote } from './Lote';
+import { DateTimeFormatPipe } from '../helpers/DateTimeFormat.pipe';
+import { Lotes } from './Lotes';
 import { PalestranteEvento } from './PalestranteEvento';
 import { RedeSocial } from './RedeSocial';
 
@@ -11,7 +12,7 @@ qtdPessoas: number;
 imagemURL: string;
 telefone: string;
 email: string;
-lotes: Lote[];
+lotes: Lotes[];
 redesSociais: RedeSocial[];
 palestrantesEventos: PalestranteEvento[];
 }

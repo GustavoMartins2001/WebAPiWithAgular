@@ -1,9 +1,8 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,19 +26,26 @@ import { TituloComponent } from './shared/titulo/titulo.component';
 import { ContatosComponent } from './components/contatos/contatos.component';
 import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
 import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
+import { PalestrantesDetalheComponent } from './components/palestrantes/palestrantes-detalhe/palestrantes-detalhe.component';
+import { PalestrantesListaComponent } from './components/palestrantes/palestrantes-lista/palestrantes-lista.component';
+import { UploadfileComponent } from './shared/uploadFile/uploadfile.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+      AppComponent,
+      EventoDetalheComponent,
+      EventoListaComponent,
       EventosComponent,
       PalestrantesComponent,
+      PalestrantesDetalheComponent,
+      PalestrantesListaComponent,
       DashboardComponent,
       ContatosComponent,
       TituloComponent,
       NavComponent,
       DateTimeFormatPipe,
-      EventoDetalheComponent,
-      EventoListaComponent
+      UploadfileComponent
+
    ],
   imports: [
     BrowserModule,
@@ -49,10 +55,12 @@ import { EventoListaComponent } from './components/eventos/evento-lista/evento-l
     CollapseModule.forRoot(),
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+
 
   ],
   providers: [

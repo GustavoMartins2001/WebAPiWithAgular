@@ -34,6 +34,9 @@ namespace ProEventos.WebApi
         {
             services.AddDbContext<ProEventosContext>(context=> context.UseSqlite(Configuration.GetConnectionString("Default")));
             services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<IPalestranteService, PalestranteService>();
+
+            services.AddScoped<IPalestrantePersistence, PalestrantePersistence>();
             services.AddScoped<IGeralPersistence, GeralPersistence>();
             services.AddScoped<IEventoPersistence, EventosPersistence   >();
             services.AddControllers()
@@ -41,8 +44,20 @@ namespace ProEventos.WebApi
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore
                     );
 
+                    services.AddCors(options =>
+    {
+          options.AddPolicy("AllowAllHeaders",
+                builder =>
+            {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+    });
+             services.AddResponseCaching();
 
-            services.AddCors();
+
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProEventos.WebApi", Version = "v1" });
@@ -65,8 +80,8 @@ namespace ProEventos.WebApi
 
             app.UseAuthorization();
 
-            app.UseCors(access=>access.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-
+            app.UseCors(access => access.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

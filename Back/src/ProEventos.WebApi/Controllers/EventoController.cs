@@ -10,21 +10,22 @@ using ProEventos.Persistence.Contexto;
 using ProEventos.Application.Interfaces;
 using ProEventos.Application;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 
 namespace ProEventos.WebApi.Controllers
 {
+
     [ApiController]
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
         private readonly IEventoService _eventoService;
-
         public EventosController(IEventoService eventoService)
         {
             this._eventoService = eventoService;
 
         }
-
+        
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -61,9 +62,8 @@ namespace ProEventos.WebApi.Controllers
             }
 
 
-        }
-
-        [HttpGet("{tema}/tema")]
+        } 
+        [HttpGet("tema/{tema}")]
         public async Task<IActionResult> GetByTema(string tema)
         {
             try
@@ -81,7 +81,7 @@ namespace ProEventos.WebApi.Controllers
 
 
         }
-
+        [EnableCors("AllowAllHeaders")]
         [HttpPost]
         public async Task<IActionResult > Post(Evento model)
         {
@@ -115,13 +115,13 @@ namespace ProEventos.WebApi.Controllers
                 $"Erro ao tentar atualizar os eventos.Erro: {ex.Message}");
             }
         }
-
+        // [EnableCors("AllowAllHeaders")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             try
             {
-               return await _eventoService.DeleteEvento(id)?
+                return await _eventoService.DeleteEvento(id)?
                Ok("Deletado") :
                BadRequest("Evento não deletado");
                    

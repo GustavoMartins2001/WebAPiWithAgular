@@ -1,4 +1,7 @@
-
+<app-titulo
+[titulo] = "'Eventos'"
+[iconClass] ="'fa fa-calendar-alt'"
+ ></app-titulo>
  <div class = "card rounded shadow-sm p-3">
 <div  class="flex-fill form-inline">
 
@@ -36,7 +39,7 @@
   <tbody *ngIf="eventos && eventos.length" class="text-left">
     <tr *ngFor="let prop of eventosFiltrados" >
       <td class= "d-none d-md-table-cell">
-        <img src="/assets/{{prop.imagemURL}}" alt="event image"
+        <img src="/assets/{{prop.imagemURL}}" alt="imagem do evento"
         [style.width.px] ="imageWidth"
         [style.margin.px] ="imageMargin">
       </td>
@@ -45,13 +48,16 @@
       <td class= "d-none d-md-table-cell">{{prop.local}}</td>
       <td>{{prop.dataEvento | DateFormatPipe}}</td>
       <td class= "d-none d-md-table-cell">{{prop.qtdPessoas}}</td>
-      <td class= "d-none d-md-table-cell">{{prop.lotes[0].nome}}</td>
+
+      <!-- substituir a linha abaixo pela seguinte quando:
+      o modelo lotes estiver definido: <td class= "d-none d-md-table-cell">{{prop.lotes[0].nome}} </td> -->
+      <td class= "d-none d-md-table-cell"></td>
       <td>
         <!-- botões para Editar e deletar-->
         <button type ="button" class="btn btn-sm btn-primary mr-2" tooltip = "Editar" (click)="detalheEvento(prop.id)">
           <i class="fa fa-edit"></i>
         </button>
-        <button type ="button" class="btn btn-sm btn-danger" (click)="openModal(template)" tooltip = "Excluir" >
+        <button type ="button" class="btn btn-sm btn-danger" (click)="getEventoId(prop.id)" (click)="openModal(template)" tooltip = "Excluir" >
           <i class="fa fa-trash"></i>
         </button>
 
@@ -72,7 +78,7 @@
 <ng-template #template>
   <div class="modal-body text-center">
     <p>Deseja deletar este Evento?</p>
-    <button type="button" class="btn btn-default" (click)="confirm()" (click)="openModal(deleted)" >Sim</button>
+    <button type="button" class="btn btn-default" (click)="deleteEvento()" (click)="confirm()" (click)="openModal(deleted)" >Sim</button>
     <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
   </div>
 </ng-template>
@@ -80,7 +86,7 @@
 <ng-template #deleted   >
   <div class="modal-body text-center">
   <p class ="text-center" >Deletado com Sucesso</p>
-  <button type = "button" class="btn btn-success" (click)="modalHide()" >Confirmar</button>
+  <button type = "button" class="btn btn-success" (click)="RefreshPage()" >Confirmar</button>
   </div>
 </ng-template>
 

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -11,7 +12,7 @@ import { Evento } from 'src/app/_models/Evento';
   styleUrls: ['./evento-lista.component.scss']
 })
 export class EventoListaComponent implements OnInit {
-
+  public id = 0;
 
   modalRef?: BsModalRef;
   public isExpanded = false;
@@ -49,19 +50,14 @@ public filtrarEventos(filtrarPor: string): Evento[] {
 
   ngOnInit(): void {
     this.getEventos();
-    /** show spinner on load */
-    this.spinner.show();
+    // this.spinner.show();
 
-    // setTimeout(() => {
-    //   /** spinner ends after 5 seconds */
-    //
-    // }, 5000);
   }
 
 
   public getEventos(): void {
     this.eventoService.getEvento()
-    .subscribe({
+    .subscribe ({
       next: (eventos: Evento[]) =>
        {this.eventos = eventos;
         this.eventosFiltrados = eventos;
@@ -72,6 +68,7 @@ public filtrarEventos(filtrarPor: string): Evento[] {
         },
         complete: () => this.spinner.hide()});
   }
+
   public expandImage(): void{
     if (!this.isExpanded){
       this.imageWidth = 200;
@@ -93,7 +90,6 @@ public filtrarEventos(filtrarPor: string): Evento[] {
     this.modalRef.hide();
     }
 
-
   }
   decline(): void {
     if (this.modalRef !== undefined){
@@ -101,14 +97,34 @@ public filtrarEventos(filtrarPor: string): Evento[] {
 
     }
   }
-  modalHide(): void{
+  RefreshPage(): void{
     if (this.modalRef !== undefined){
     this.modalRef.hide();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+    this.router.navigate(['eventos/lista/']));
     }
   }
 
   detalheEvento(id: number): void{
     this.router.navigate([`eventos/detalhe/${id}`]);
+  }
+
+  getEventoId(id: number): void{
+    this.id = id;
+  }
+
+  deleteEvento(): void{
+    console.log(this.id)
+    this.eventoService.deleteEvento(this.id).subscribe(
+      (data) => {
+         console.log('Deleted successfully');
+      },
+      (error: HttpErrorResponse) => {
+          console.log(error);
+      }
+    );
+    this.id = 0;
+
   }
 
 

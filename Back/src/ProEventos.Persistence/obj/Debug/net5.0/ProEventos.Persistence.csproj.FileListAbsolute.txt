@@ -16,3 +16,21 @@ F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Persistence\obj\Debug\net5.0\P
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Persistence.runtimeconfig.json
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Persistence.runtimeconfig.dev.json
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.genruntimeconfig.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Persistence.deps.json
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Persistence.runtimeconfig.json
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Persistence.runtimeconfig.dev.json
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Persistence.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ref\ProEventos.Persistence.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Persistence.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Domain.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\bin\Debug\net5.0\ProEventos.Domain.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.csprojAssemblyReference.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.AssemblyInfoInputs.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.AssemblyInfo.cs
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.csproj.CoreCompileInputs.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.csproj.CopyComplete
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ref\ProEventos.Persistence.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Persistence\obj\Debug\net5.0\ProEventos.Persistence.genruntimeconfig.cache

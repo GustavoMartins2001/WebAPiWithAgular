@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-uploadfile',
   templateUrl: './uploadfile.component.html',
@@ -9,9 +10,8 @@ import { Output, EventEmitter } from '@angular/core';
 export class UploadfileComponent implements OnInit {
 
   @Output() image = new EventEmitter<any>();
-  public getImagem: any
+  public getImagem!: any;
   reader = new FileReader;
-  imaggg:any;
   constructor(
   ) { }
   ngOnInit() {
@@ -19,15 +19,18 @@ export class UploadfileComponent implements OnInit {
   uploadFile(event: any): void{
     this.getImagem = event.target.files[0];
     console.log(this.getImagem);
-    this.reader.readAsDataURL(event.target.files[0])
-    this.reader.onload = (event2)=>(
-    this.imaggg = this.reader.result)
-    console.log(this.reader);
+    // this.reader.readAsDataURL(event.target.files[0])
+    // this.reader.onload = (event2)=>(
+    // );
+   
 
   }
 
   emitFile(): void{
-this.image.emit(this.getImagem);
+    const fs = new FormControl(this.getImagem); 
+    console.log(fs.value);
+  this.image.emit(fs);
+  
   }
 
 }

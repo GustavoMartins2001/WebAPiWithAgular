@@ -793,37 +793,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gustavo\\.nuget\\packages\\": {}
+    "C:\\Users\\Matheus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj",
+      "projectUniqueName": "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj",
       "projectName": "ProEventos.Application",
-      "projectPath": "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj",
-      "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
-      "outputPath": "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Application\\obj\\",
+      "projectPath": "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj",
+      "packagesPath": "C:\\Users\\Matheus\\.nuget\\packages\\",
+      "outputPath": "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Matheus\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj": {
-              "projectPath": "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj"
+            "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj": {
+              "projectPath": "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj"
             },
-            "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Persistence\\ProEventos.Persistence.csproj": {
-              "projectPath": "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Persistence\\ProEventos.Persistence.csproj"
+            "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Persistence\\ProEventos.Persistence.csproj": {
+              "projectPath": "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Persistence\\ProEventos.Persistence.csproj"
             }
           }
         }
@@ -852,7 +850,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

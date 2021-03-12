@@ -15,3 +15,20 @@ F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\P
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Domain.pdb
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Persistence.pdb
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csproj.CopyComplete
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.deps.json
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ref\ProEventos.Application.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Domain.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Persistence.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Domain.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Persistence.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csprojAssemblyReference.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.AssemblyInfoInputs.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.AssemblyInfo.cs
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csproj.CoreCompileInputs.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csproj.CopyComplete
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ref\ProEventos.Application.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.pdb

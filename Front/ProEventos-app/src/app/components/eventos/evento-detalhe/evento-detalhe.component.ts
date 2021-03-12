@@ -45,7 +45,7 @@ export class EventoDetalheComponent implements OnInit {
   public palestrantesFiltrados: Palestrante[] = [];
   private filtroListado = '';
   public selectedValue:any;
-  public eventoImagem:any;
+  public eventoImagem!:FormControl;
 
  reader = new FileReader();
 
@@ -54,9 +54,21 @@ export class EventoDetalheComponent implements OnInit {
     this.getpalestrantes();
 
   }
-  addImage(imagem: any):void{
-    this.eventoImagem = imagem;
-  }
+
+  // codigo parar enviar imagem para o database
+  // não consegui fazer meu post tratar a imagem, então sempre dava erro
+
+  // addImage(imagem: any):void{
+  //   this.eventoImagem = imagem;
+  // }
+  // addphoto():void{
+
+  //   var temp = this.form.get("imagemURL") as FormControl
+  //   temp.patchValue(this.eventoImagem.value)
+  //   // this.form.addControl('imagemURL', this.eventoImagem.value)
+  //   console.log(temp);
+  // }
+
 
   public getpalestrantes(): void {
     this.palestranteService.getPalestrante()
@@ -70,48 +82,48 @@ export class EventoDetalheComponent implements OnInit {
   })
 }
 
-choosePalestrante(): void{
-  this.selectPalestrante = this.printPalestrante;
-  // console.log(this.printPalestrante);
-  this.addPalestranteFormGroup();
-}
+// choosePalestrante(): void{
+//   this.selectPalestrante = this.printPalestrante;
+//   // console.log(this.printPalestrante);
+//   this.addPalestrantesEventosFormGroup();
+// }
 
-public addPalestranteFormGroup(): void {
-    if(this.selectPalestrante!== null){
-    this.palestrantesGroup = this.fb.group({
-      id: [this.selectPalestrante.id],
-      nome: [this.selectPalestrante.nome],
-      miniCurriculo: [this.selectPalestrante.miniCurriculo],
-      imagemURL: [this.selectPalestrante.imagemURL],
-      telefone: [this.selectPalestrante.telefone],
-      email: [this.selectPalestrante.email],
-      redesSociais: [this.selectPalestrante.redesSociais]
-});
-    this.palestrantes = this.form.get('palestrantes') as FormArray;
-    this.palestrantes.push(this.palestrantesGroup);
-    console.log(this.palestrantesGroup.value)
-    console.log(this.palestrantes.value)
-}}
+
+
+
+// public addPalestrantesEventosFormGroup(): void {
+//   if(this.selectPalestrante!== null){
+//   this.palestrantesGroup = this.fb.group({
+//     palestranteId: [this.selectPalestrante.id],
+//     palestrante: [this.selectPalestrante],
+//     evento: []
+
+// });
+//   this.palestrantes = this.form.get('palestrantesEventos') as FormArray;
+//   this.palestrantes.push(this.palestrantesGroup);
+//   console.log(this.palestrantesGroup.value)
+//   console.log(this.palestrantes.value)
+// }}
 
 
 // codigo principal
 
   public validation(): void {
     this.form = this.fb.group({
-      local: [''],
-      dataEvento: [''],
-      tema: [''],
-      qtdPessoas: [''],
+      local: ['',Validators.required],
+      dataEvento: ['',Validators.required],
+      tema: ['',Validators.required, Validators.maxLength(70)],
+      qtdPessoas: ['',Validators.required],
       imagemURL: [''],
-      telefone: [''],
-      email: [''],
+      telefone: ['',Validators.required, Validators.maxLength(11)],
+      email: ['',Validators.required, Validators.email],
       redesSociais: this.fb.array([
 
       ]),
       lotes: this.fb.array([
         this.addLoteFormGroup() // quero que seja necessario a inserção de ao menos 1 lote
       ], Validators.required),
-      palestrantes: this.fb.array([
+      palestrantesEventos: this.fb.array([
 
       ])
 
@@ -122,8 +134,8 @@ public addPalestranteFormGroup(): void {
 
   public addRedeFormGroup(): FormGroup {
     return this.fb.group({
-      nome: [''],
-      url: ['']
+      nome: ['',Validators.required,Validators.maxLength(35)],
+      url: ['',Validators.required]
     });
   }
 
@@ -155,8 +167,7 @@ public addPalestranteFormGroup(): void {
 
 
   public submitForm(): void{
-
-    // this.data = this._dateFormatPipe.transformFullDate(this.form.get('dataEvento')?.value);
+    // this.addphoto();
     console.log(this.form.value);
 
     this.eventoService.postEvento(this.form.value).subscribe(

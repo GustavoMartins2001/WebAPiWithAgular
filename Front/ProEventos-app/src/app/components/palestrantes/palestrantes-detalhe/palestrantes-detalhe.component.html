@@ -11,23 +11,42 @@
       <div class="form-row">
         <div class="form-group col-md-8">
           <label>Nome</label>
-          <input type="text" class="form-control" formControlName="nome" placeholder="Insira seu nome">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.nome.errors && f.nome.touched}"
+           formControlName="nome" placeholder="Insira seu nome">
+        <div *ngIf="f.nome.hasError('required')" class="invalid-feedback">
+          Nome é obrigatório
+        </div>
         </div>
         <div class="form-group col-md-3">
           <label>Telefone</label>
-          <input type="text" class="form-control" formControlName="telefone" placeholder="(000) 90000-0000">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.telefone.errors && f.telefone.touched}"
+           formControlName="telefone" placeholder="(00) 912345678">
+          <div *ngIf="f.telefone.hasError('required')" class="invalid-feedback">
+            Telefone é obrigatório
+          </div>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-8">
           <label>MiniCurriculo</label>
-          <input type="text" class="form-control" formControlName="miniCurriculo" placeholder="Especialização, experiência">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.miniCurriculo.errors && f.miniCurriculo.touched}"
+           formControlName="miniCurriculo" placeholder="Especialização, experiência">
+          <div *ngIf="f.miniCurriculo.hasError('required')" class="invalid-feedback">
+            MiniCurriculo é obrigatório
+          </div>
         </div>
 
         <div class="form-group col-md-3">
           <label>Email</label>
-          <input type="text" class="form-control" formControlName="email" placeholder="">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.email.errors && f.email.touched}"
+           formControlName="email" placeholder="">
+          <div *ngIf="f.email.hasError('required')" class="invalid-feedback">
+            Email é obrigatório
+          </div>
+          <div *ngIf="f.email.hasError('email')" class="invalid-feedback">
+            Insira um endereço de email valido
+          </div>
         </div>
       </div>
 
@@ -35,7 +54,7 @@
 
         <!-- <div class="form-group col-md-4">
           <label>RedesSociais</label>
-          <input type="text" class="form-control" formControlName="RedesSociais" placeholder="e-mail">
+          <input type="text" class="form-control is-invalid" formControlName="RedesSociais" placeholder="e-mail">
         </div> -->
 
         <div formArrayName="redesSociais"
@@ -44,11 +63,20 @@
         <div class ="form-row" [formGroupName]="i">
         <div class = "form-group col-md-3">
         <label>Rede Social:</label>
-        <input type="text" class="form-control" formControlName="nome" >
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': form.get('redesSociais.'+i+'.nome')!.errors && form.get('redesSociais.'+i+'.nome')!.touched}"
+         formControlName="nome" >
+        <div *ngIf="form.get('redesSociais.'+i+'.nome')!.hasError('required')" class="invalid-feedback">
+          Nome da Rede Social é obrigatório
+        </div>
         </div>
         <div class = "form-group col-md-4">
           <label>Url:</label>
-          <input type="text" class="form-control" formControlName="url" placeholder="ex: www.facebook.com/proeventos" >
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': form.get('redesSociais.'+i+'.url')!.errors && form.get('redesSociais.'+i+'.url')!.touched}"
+          formControlName="url"
+           placeholder="ex: www.facebook.com/proeventos" >
+           <div *ngIf="form.get('redesSociais.'+i+'.url')!.hasError('required')" class="invalid-feedback">
+            Endereço da Rede é obrigatório
+          </div>
           </div>
         </div>
         </div>
@@ -63,10 +91,10 @@
 
     <div class="card-footer">
       <div class="d-flex">
-        <button class="btn btn-outline-secondary mr-auto border">
+        <button routerLink="/palestrantes/lista" class="btn btn-outline-secondary mr-auto border">
           Cancelar Alteração
         </button>
-        <button type="submit" class="btn btn-success">
+        <button type="submit" [disabled]="form.valid" class="btn btn-success">
           <!-- <span class="spinner-border spinner-border-sm mr-1"></span> -->
           Salvar Evento
         </button>

@@ -36,19 +36,19 @@
     </tr>
   </thead>
 
-  <tbody *ngIf="eventos && eventos.length" class="text-left">
-    <tr *ngFor="let prop of eventosFiltrados" >
+  <tbody *ngIf="eventos && eventos.length" class="text-left" >
+    <tr *ngFor="let prop of eventosFiltrados" routerLink = "/eventos/info/{{prop.id}}" >
       <td class= "d-none d-md-table-cell">
         <img src="/assets/{{prop.imagemURL}}" alt="imagem do evento"
         [style.width.px] ="imageWidth"
         [style.margin.px] ="imageMargin">
       </td>
       <td>{{prop.id}}</td>
-      <td>{{prop.tema}}</td>
+      <td >{{prop.tema}}</td>
       <td class= "d-none d-md-table-cell">{{prop.local}}</td>
       <td>{{prop.dataEvento | DateFormatPipe}}</td>
       <td class= "d-none d-md-table-cell">{{prop.qtdPessoas}}</td>
-
+      <!-- a class="d-flex btn btn-outline-primary btn-sm" routerLink ="/eventos/detalhe" -->
       <!-- substituir a linha abaixo pela seguinte quando:
       o modelo lotes estiver definido: <td class= "d-none d-md-table-cell">{{prop.lotes[0].nome}} </td> -->
       <td class= "d-none d-md-table-cell"></td>

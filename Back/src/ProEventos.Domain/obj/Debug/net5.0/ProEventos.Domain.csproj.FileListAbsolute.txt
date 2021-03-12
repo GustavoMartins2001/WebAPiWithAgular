@@ -10,3 +10,15 @@ F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEve
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.dll
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Domain\obj\Debug\net5.0\ref\ProEventos.Domain.dll
 F:\c# projects\WEB\ProEventos\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.deps.json
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\bin\Debug\net5.0\ref\ProEventos.Domain.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.pdb
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csprojAssemblyReference.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfoInputs.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfo.cs
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.CoreCompileInputs.cache
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ref\ProEventos.Domain.dll
+E:\ProEventos\WebAPiWithAgular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.pdb

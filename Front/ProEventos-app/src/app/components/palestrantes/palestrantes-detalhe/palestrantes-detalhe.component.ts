@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PalestranteService } from 'src/app/services/palestrante.service';
 
@@ -10,7 +10,6 @@ import { PalestranteService } from 'src/app/services/palestrante.service';
   styleUrls: ['./palestrantes-detalhe.component.scss']
 })
 export class PalestrantesDetalheComponent implements OnInit {
-  // redeSocial!: FormGroup;
   form!: FormGroup;
   redesSociais = new FormArray([]);
   constructor(
@@ -25,12 +24,16 @@ export class PalestrantesDetalheComponent implements OnInit {
    this.validation();
   }
 
+  get f(): any{
+   return this.form.controls;
+  }
+
   public validation(): void{
     this.form = this.fb.group({
-     nome: [''],
-     miniCurriculo: [''],
-     email: [''],
-     telefone: [''],
+     nome: ['',Validators.required],
+     miniCurriculo: ['',Validators.required],
+     email: ['',[Validators.required,Validators.email]],
+     telefone: ['',[Validators.required,Validators.maxLength(11)]],
      redesSociais: this.fb.array([
 
      ])
@@ -42,8 +45,8 @@ export class PalestrantesDetalheComponent implements OnInit {
 
   public addRedeFormGroup(): FormGroup {
     return this.fb.group({
-      nome: [''],
-      url: ['']
+      nome: ['',Validators.required],
+      url: ['',Validators.required]
     });
   }
   public addRedeInput():any{

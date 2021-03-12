@@ -11,6 +11,8 @@ using ProEventos.Application.Interfaces;
 using ProEventos.Application;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Cors;
+using System.IO;
+using System.Net.Http.Headers;
 
 namespace ProEventos.WebApi.Controllers
 {
@@ -82,7 +84,7 @@ namespace ProEventos.WebApi.Controllers
 
         }
         [EnableCors("AllowAllHeaders")]
-        [HttpPost]
+        [HttpPost,DisableRequestSizeLimit]
         public async Task<IActionResult > Post(Evento model)
         {
              try

@@ -1,6 +1,6 @@
 import { DateTimeFormatPipe } from '../helpers/DateTimeFormat.pipe';
 import { Lotes } from './Lotes';
-import { PalestranteEvento } from './PalestranteEvento';
+import { Palestrante } from './Palestrante';
 import { RedeSocial } from './RedeSocial';
 
 export interface Evento{
@@ -14,6 +14,6 @@ telefone: string;
 email: string;
 lotes: Lotes[];
 redesSociais: RedeSocial[];
-palestrantesEventos: PalestranteEvento[];
+palestranteEvento: Palestrante[];
 }
 

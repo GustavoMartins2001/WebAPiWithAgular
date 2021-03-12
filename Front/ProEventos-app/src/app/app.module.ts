@@ -21,7 +21,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { EventoService } from './services/evento.service';
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
 import { ContatosComponent } from './components/contatos/contatos.component';
 import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
@@ -39,12 +38,11 @@ import { UploadfileComponent } from './shared/uploadFile/uploadfile.component';
       PalestrantesComponent,
       PalestrantesDetalheComponent,
       PalestrantesListaComponent,
-      DashboardComponent,
       ContatosComponent,
       TituloComponent,
       NavComponent,
       DateTimeFormatPipe,
-      UploadfileComponent
+      UploadfileComponent,
 
    ],
   imports: [

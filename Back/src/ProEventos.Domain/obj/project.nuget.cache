@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "foYu/XG3UcFNi5wgS1G2v0d4lBnOpAgPyy23PCL/bsWI0p2sv7aTY5ZgiwLBAYyytOaUxEdqau8cq7uDK48YxQ==",
+  "dgSpecHash": "vUvTZpSZr3fALnwrhIteXiWbhLqW8qvEr/fkQH15wjB856xtL8C4FuKXjQAGBHIZX4N3BXQvql7xtRMNbKUVOQ==",
   "success": true,
-  "projectFilePath": "F:\\c# projects\\WEB\\ProEventos\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+  "projectFilePath": "E:\\ProEventos\\WebAPiWithAgular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

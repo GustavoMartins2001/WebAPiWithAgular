@@ -7,9 +7,13 @@
 <div class="card rounded shadow-sm">
   <form [formGroup]="form" (ngSubmit)="submitForm()"  method="post">
     <div class="p-3">
+
+
+      <!-- macete para ver a form na tela -->
       <p>form value: {{form.value | json}}</p>
       <p>form value: {{form.status | json}}</p>
-      <p>{{printPalestrante}}</p>
+
+      <!-- <p>{{printPalestrante}}</p> -->
       <div class="form-row">
         <div class="form-group col-md-12">
           <label>Tema</label>
@@ -73,9 +77,16 @@
             <i class="fa fa-plus-circle"></i> Lote</b>
         </div>
       </div>
-      <app-uploadfile (image)="addImage($event)"></app-uploadfile>
-      <p>{{eventoImagem.name}}</p>
-      <form (ngSubmit)="choosePalestrante()">
+          <!-- component para fazer upload de imagem -->
+      <!-- <app-uploadfile (image)="addImage($event)"></app-uploadfile> -->
+
+      <!-- <p>{{eventoImagem}}</p> -->
+      <!-- <form (ngSubmit)="choosePalestrante()">
+
+
+         teve um erro na hora de adicionar os palestrantes na database, então o codigo abaixo
+         não entra no banco, apesar da logica estar correta.
+
       <div class="form-group col-md-2">
       <label>Add Palestrante:</label>
       <select [(ngModel)]="printPalestrante" class="form-control" name="first">
@@ -85,7 +96,9 @@
         Adicionar
       </button>
     </div>
-  </form>
+
+  </form> -->
+
       <div formArrayName="redesSociais"
          *ngFor="let rede of redesSociais.controls; let i = index;">
 
@@ -111,7 +124,7 @@
     </div>
     <div class="card-footer">
       <div class="d-flex">
-        <button (click)="redirectLista()" class="btn btn-outline-secondary mr-auto border">
+        <button routerLink="/eventos/lista" class="btn btn-outline-secondary mr-auto border">
           Cancelar Alteração
         </button>
         <button type="submit" class="btn btn-success">

@@ -6,8 +6,11 @@
 <div class="card rounded shadow-sm">
   <form [formGroup]="form" (ngSubmit)="submitForm()"  method="post">
     <div class="p-3">
-      <p>form value: {{form.value | json}}</p>
-      <p>form value: {{form.status | json}}</p>
+
+      <!-- macete para ver a form na tela -->
+      <!-- <p>form value: {{form.value | json}}</p>
+      <p>form value: {{form.status | json}}</p> -->
+
       <div class="form-row">
         <div class="form-group col-md-8">
           <label>Nome</label>
@@ -45,7 +48,7 @@
             Email é obrigatório
           </div>
           <div *ngIf="f.email.hasError('email')" class="invalid-feedback">
-            Insira um endereço de email valido
+            Insira um endereço de email válido
           </div>
         </div>
       </div>
@@ -94,7 +97,7 @@
         <button routerLink="/palestrantes/lista" class="btn btn-outline-secondary mr-auto border">
           Cancelar Alteração
         </button>
-        <button type="submit" [disabled]="form.valid" class="btn btn-success">
+        <button type="submit" [disabled]="!form.valid" class="btn btn-success">
           <!-- <span class="spinner-border spinner-border-sm mr-1"></span> -->
           Salvar Evento
         </button>

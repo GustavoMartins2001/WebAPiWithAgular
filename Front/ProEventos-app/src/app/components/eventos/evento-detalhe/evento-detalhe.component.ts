@@ -23,35 +23,31 @@ export class EventoDetalheComponent implements OnInit {
     private http: HttpClient,
     public fb: FormBuilder,
     public router: Router,
-    // public reader: FileReader
    ) { }
-  @Input() name!: string;
   form!: FormGroup;
   redesSociais = new FormArray([]);
-  lotes = new FormArray([ this.addLoteFormGroup()]); // iniciando a form de 1 lote (index começando com
-  palestrantes = new FormArray([]);
-  palestrantesGroup!:FormGroup;
+  lotes = new FormArray([this.addLoteFormGroup()]); // iniciando a form de 1 lote
 
-  selectPalestrante!: Palestrante;
-  printPalestrante!: Palestrante;
+  // palestrantes = new FormArray([]);
+  // palestrantesGroup!:FormGroup;
 
+  // selectPalestrante!: Palestrante;
+  // printPalestrante!: Palestrante;
 
-
-
-
-  maxPessoas = 0;
   nome = new FormControl();
-  public palests: Palestrante[] = [];
-  public palestrantesFiltrados: Palestrante[] = [];
+  // public palests: Palestrante[] = [];
+  // public palestrantesFiltrados: Palestrante[] = [];
+   // public selectedValue:any;
+  // public eventoImagem!:FormControl;
   private filtroListado = '';
-  public selectedValue:any;
-  public eventoImagem!:FormControl;
+
 
  reader = new FileReader();
 
   ngOnInit(): void {
     this.validation();
-    this.getpalestrantes();
+
+    // this.getpalestrantes();
 
   }
 
@@ -70,17 +66,17 @@ export class EventoDetalheComponent implements OnInit {
   // }
 
 
-  public getpalestrantes(): void {
-    this.palestranteService.getPalestrante()
-    .subscribe ({
-      next: (pales: Palestrante[]) =>
-       {this.palests = pales;
-       },
-        error: (error: any ) => {
-          console.log(error);
-        }
-  })
-}
+//   public getpalestrantes(): void {
+//     this.palestranteService.getPalestrante()
+//     .subscribe ({
+//       next: (pales: Palestrante[]) =>
+//        {this.palests = pales;
+//        },
+//         error: (error: any ) => {
+//           console.log(error);
+//         }
+//   })
+// }
 
 // choosePalestrante(): void{
 //   this.selectPalestrante = this.printPalestrante;
@@ -108,24 +104,28 @@ export class EventoDetalheComponent implements OnInit {
 
 // codigo principal
 
+get f(): any{
+  return this.form.controls;
+ }
+
   public validation(): void {
     this.form = this.fb.group({
-      local: ['',Validators.required],
-      dataEvento: ['',Validators.required],
-      tema: ['',Validators.required, Validators.maxLength(70)],
-      qtdPessoas: ['',Validators.required],
+      local: ['', Validators.required],
+      dataEvento: ['', Validators.required],
+      tema: ['',[Validators.required, Validators.maxLength(50)]],
+      qtdPessoas: ['', [Validators.required, Validators.min(0)]],
       imagemURL: [''],
-      telefone: ['',Validators.required, Validators.maxLength(11)],
-      email: ['',Validators.required, Validators.email],
+      telefone: ['', [Validators.required, Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]],
       redesSociais: this.fb.array([
 
       ]),
       lotes: this.fb.array([
-        this.addLoteFormGroup() // quero que seja necessario a inserção de ao menos 1 lote
-      ], Validators.required),
-      palestrantesEventos: this.fb.array([
+       this.addLoteFormGroup() // quero que seja necessario a inserção de ao menos 1 lote
+      ]),
+      // palestrantesEventos: this.fb.array([
 
-      ])
+      // ])
 
     });
 
@@ -134,8 +134,8 @@ export class EventoDetalheComponent implements OnInit {
 
   public addRedeFormGroup(): FormGroup {
     return this.fb.group({
-      nome: ['',Validators.required,Validators.maxLength(35)],
-      url: ['',Validators.required]
+      nome: ['', Validators.required],
+      url: ['', Validators.required]
     });
   }
 
@@ -148,9 +148,9 @@ export class EventoDetalheComponent implements OnInit {
 
   public addLoteFormGroup(): FormGroup{
     return this.fb.group({
-      nome: [''],        // vip, regular, etc.
-      preco: [''],       // preco do assento no lote
-      quantidade: ['',]   // capacidade max de pessoas no lote
+      nome: ['', Validators.required],        // vip, regular, etc.
+      preco: ['', [Validators.required,Validators.min(0)]],       // preco do assento no lote
+      quantidade: ['', [Validators.required, Validators.min(0)]]   // capacidade max de pessoas no lote
     });
 
 
@@ -161,13 +161,12 @@ export class EventoDetalheComponent implements OnInit {
   }
 
 
-  public addLimit(): void{
-    this.maxPessoas = +this.form.get('qtdPessoas')?.value;
-  }
+  // public addLimit(): void{
+  //   this.maxPessoas = +this.form.get('qtdPessoas')?.value;
+  // }
 
 
   public submitForm(): void{
-    // this.addphoto();
     console.log(this.form.value);
 
     this.eventoService.postEvento(this.form.value).subscribe(

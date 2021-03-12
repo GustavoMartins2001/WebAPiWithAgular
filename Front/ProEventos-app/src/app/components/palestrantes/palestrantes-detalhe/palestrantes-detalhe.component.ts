@@ -37,9 +37,6 @@ export class PalestrantesDetalheComponent implements OnInit {
      redesSociais: this.fb.array([
 
      ])
-
-
-
     });
   }
 
@@ -49,9 +46,7 @@ export class PalestrantesDetalheComponent implements OnInit {
       url: ['',Validators.required]
     });
   }
-  public addRedeInput():any{
 
-  }
   public addRede(): void{
     this.redesSociais = this.form.get('redesSociais') as FormArray;
   this.redesSociais.push(this.addRedeFormGroup());

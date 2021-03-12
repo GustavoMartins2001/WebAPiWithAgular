@@ -10,61 +10,133 @@
 
 
       <!-- macete para ver a form na tela -->
-      <p>form value: {{form.value | json}}</p>
-      <p>form value: {{form.status | json}}</p>
+      <!-- <p>form value: {{form.value | json}}</p>
+      <p>form value: {{form.status | json}}</p> -->
 
       <!-- <p>{{printPalestrante}}</p> -->
       <div class="form-row">
         <div class="form-group col-md-12">
           <label>Tema</label>
-          <input type="text" class="form-control" formControlName="tema" placeholder="Insira o Tema">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.tema.errors && f.tema.touched}"
+          formControlName="tema" placeholder="Insira o Tema">
+          <div *ngIf="f.tema.hasError('required')" class="invalid-feedback">
+            Tema é obrigatório
+          </div>
+          <div *ngIf="f.tema.hasError('maxLength')" class="invalid-feedback">
+            Tema tem um limite de 50 caracteres
+          </div>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-8">
           <label>Local</label>
-          <input type="text" class="form-control" formControlName="local" placeholder="">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.local.errors && f.local.touched}"
+           formControlName="local" placeholder="">
+           <div *ngIf="f.local.hasError('required')" class="invalid-feedback">
+            Local é obrigatório
+          </div>
         </div>
         <div class="form-group col-md-4">
           <label>Data e Hora</label>
-          <input type="datetime-local" class="form-control" formControlName="dataEvento" placeholder="">
+          <input type="datetime-local" class="form-control is-invalid" [ngClass]="{'is-invalid': f.dataEvento.errors && f.dataEvento.touched}"
+           formControlName="dataEvento" placeholder="">
+           <div *ngIf="f.tema.hasError('required')" class="invalid-feedback">
+            Data do evento é obrigatório
+          </div>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label>Qtd Pessoas</label>
-          <input type="text" (ngModelChange)="addLimit()" class="form-control" formControlName="qtdPessoas" placeholder="">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.qtdPessoas.errors && f.qtdPessoas.touched}"
+           formControlName="qtdPessoas" placeholder="">
+
+           <div *ngIf="f.qtdPessoas.hasError('required')" class="invalid-feedback">
+            Este campo é obrigatório
+          </div>
+
+          <div *ngIf="f.qtdPessoas.hasError('min')" class="invalid-feedback">
+            Valor não pode ser negativo
+          </div>
+
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label>Telefone</label>
-          <input type="text" class="form-control" formControlName="telefone" placeholder="(000) 90000-0000">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.telefone.errors && f.telefone.touched}"
+           formControlName="telefone" placeholder="(00) 912345678">
+
+           <div *ngIf="f.telefone.hasError('required')" class="invalid-feedback">
+            Número de Telefone é obrigatório
+          </div>
+
+          <div *ngIf="f.telefone.hasError('min')" class="invalid-feedback">
+            Número de telefone inválido
+          </div>
+
         </div>
         <div class="form-group col-md-4">
           <label>Email</label>
-          <input type="text" class="form-control" formControlName="email" placeholder="e-mail">
+          <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': f.email.errors && f.email.touched}"
+           formControlName="email" placeholder="e-mail">
+
+           <div *ngIf="f.email.hasError('required')" class="invalid-feedback">
+            Email é obrigatório
+          </div>
+          <div *ngIf="f.email.hasError('email')" class="invalid-feedback">
+            Insira um endereço de email válido
+          </div>
+
         </div>
-        <div class="form-group col-md-4">
+        <!-- como não consegui pegar as fotos inseridas pelo cliente, este campo não está disponivel -->
+        <!-- <div class="form-group col-md-4">
           <label>Foto:</label>
-          <input type="text" class="form-control" formControlName="imagemURL" placeholder="">
-        </div>
+          <input type="text" class="form-control is-invalid" formControlName="imagemURL" placeholder="">
+        </div> -->
+
       </div>
       <div formArrayName="lotes"
       *ngFor="let lote of lotes.controls; let i = index">
 
       <div class = "form-row" [formGroupName]="i">
-        <div class = "form-group col-md-2">
+        <div class = "form-group col-md-3">
          <label>Lote:</label>
-         <input type="text" class="form-control" formControlName="nome">
+         <input type="text" class="form-control is-invalid" formControlName="nome"
+         [ngClass]="{'is-invalid': form.get('lotes.'+i+'.nome')!.errors && form.get('lotes.'+i+'.nome')!.touched}">
+
+         <div *ngIf="form.get('lotes.'+i+'.nome')!.hasError('required')" class="invalid-feedback">
+          Nome do lote é obrigatório
         </div>
 
-        <div class="form-group col-md-2">
+        </div>
+
+        <div class="form-group col-md-3">
         <label>Preço:</label>
-        <input type="number" class="form-control" formControlName="preco">
+        <input type="number" class="form-control is-invalid "formControlName="preco"
+        [ngClass]="{'is-invalid': form.get('lotes.'+i+'.preco')!.errors && form.get('lotes.'+i+'.preco')!.touched}">
+
+        <div *ngIf="form.get('lotes.'+i+'.preco')!.hasError('required')" class="invalid-feedback">
+          Preço do lote é obrigatório
         </div>
 
-        <div class="form-group col-md-2">
+        <div *ngIf="form.get('lotes.'+i+'.preco')!.hasError('min')" class="invalid-feedback">
+          Valor não pode ser negativo
+        </div>
+
+        </div>
+
+        <div class="form-group col-md-3">
           <label>Capacidade:</label>
-          <input type="number" class= "form-control" formControlName="quantidade">
+          <input type="number" class= "form-control is-invalid" formControlName="quantidade"
+          [ngClass]="{'is-invalid': form.get('lotes.'+i+'.quantidade')!.errors && form.get('lotes.'+i+'.quantidade')!.touched}">
+
+          <div *ngIf="form.get('lotes.'+i+'.quantidade')!.hasError('required')" class="invalid-feedback">
+            Capacidade máx. do lote é obrigatório
+          </div>
+
+          <div *ngIf="form.get('lotes.'+i+'.quantidade')!.hasError('min')" class="invalid-feedback">
+            Valor não pode ser negativo
+          </div>
+
         </div>
 
       </div>
@@ -73,10 +145,11 @@
       </div>
       <div class = "form-row">
         <div class = "form-group col-md-2">
-          <b type="button" (click)="addLote()" class="form-control btn btn-outline-primary d-sm-block">
+          <b type="button"  (click)="addLote()" class="form-control btn btn-outline-primary d-sm-block">
             <i class="fa fa-plus-circle"></i> Lote</b>
         </div>
       </div>
+
           <!-- component para fazer upload de imagem -->
       <!-- <app-uploadfile (image)="addImage($event)"></app-uploadfile> -->
 
@@ -85,7 +158,7 @@
 
 
          teve um erro na hora de adicionar os palestrantes na database, então o codigo abaixo
-         não entra no banco, apesar da logica estar correta.
+         não entra no banco.
 
       <div class="form-group col-md-2">
       <label>Add Palestrante:</label>
@@ -105,11 +178,23 @@
         <div class ="form-row" [formGroupName]="i">
         <div class = "form-group col-md-2">
         <label>Rede Social:</label>
-        <input type="text" class="form-control" formControlName="nome" >
+        <input type="text" class="form-control is-invalid" formControlName="nome"
+        [ngClass]="{'is-invalid': form.get('redesSociais.'+i+'.nome')!.errors && form.get('redesSociais.'+i+'.nome')!.touched}">
+
+        <div *ngIf="form.get('redesSociais.'+i+'.nome')!.hasError('required')" class="invalid-feedback">
+          Nome da Rede é obrigatório
+        </div>
+
         </div>
         <div class = "form-group col-md-3">
           <label>Url:</label>
-          <input type="text" class="form-control" formControlName="url" placeholder="ex: www.facebook.com/proeventos" >
+          <input type="text" class="form-control is-invalid" formControlName="url" placeholder="ex: www.facebook.com/proeventos"
+          [ngClass]="{'is-invalid': form.get('redesSociais.'+i+'.url')!.errors && form.get('redesSociais.'+i+'.url')!.touched}" >
+
+          <div *ngIf="form.get('redesSociais.'+i+'.url')!.hasError('required')" class="invalid-feedback">
+            Endereço da Rede é obrigatório
+          </div>
+
           </div>
           <hr class = " linha-vertical">
         </div>
@@ -127,7 +212,7 @@
         <button routerLink="/eventos/lista" class="btn btn-outline-secondary mr-auto border">
           Cancelar Alteração
         </button>
-        <button type="submit" class="btn btn-success">
+        <button type="submit" [disabled]="!form.valid" class="btn btn-success">
           <!-- <span class="spinner-border spinner-border-sm mr-1"></span> -->
           Salvar Evento
         </button>
